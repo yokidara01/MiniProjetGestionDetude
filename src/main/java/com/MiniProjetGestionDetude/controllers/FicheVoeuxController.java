@@ -30,12 +30,15 @@ public class FicheVoeuxController {
 		return ficheVoeuxService.getAllFicheVoeux();
 	}
 	
+	//get all fiche voeux in semester 
 	@RequestMapping(value="/ficheVoeux/semestre/{id}",method=RequestMethod.GET)
 	public List<FicheVoeux> getAllFvBySemestre(@PathVariable int id)
 	{
 		return ficheVoeuxService.getFicheVoeuxBySemestre(id);
 	}
 	
+	
+	// get fiche de voeux by prof ID 
 	@RequestMapping(value="/ficheVoeux/enseingent/{id}",method=RequestMethod.GET)
 	public List<FicheVoeux> getAllFvByEnseingent(@PathVariable int id)
 	{

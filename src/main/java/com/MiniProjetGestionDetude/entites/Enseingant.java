@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "enseingant")
 public class Enseingant implements Serializable {
-
+ //get ens by grad then date rec 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
