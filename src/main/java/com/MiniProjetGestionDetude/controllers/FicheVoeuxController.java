@@ -27,7 +27,7 @@ public class FicheVoeuxController {
 
 		
 		
-		return ficheVoeuxService.addFicheVoeux(ficheVoeux);
+		return ficheVoeuxService.addFicheVoeux(ficheVoeuxRest);
 	}
 	
 	

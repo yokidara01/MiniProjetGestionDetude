@@ -28,8 +28,9 @@ public class FicheVoeuxService {
 	{
 		FicheVoeux ficheVoeux = new FicheVoeux() ;
 		List<Voeux_Matier> vm = new ArrayList<>() ; 
-		Unpack(ficheVoeuxR,ficheVoeux,vm);
-		
+		ArrayList<Object>pack = Unpack(ficheVoeuxR);
+		ficheVoeux=(FicheVoeux) pack.get(0); 
+		vm=(List<Voeux_Matier>)  pack.get(1); 
 		for (Voeux_Matier m: vm)
 		{
 			m.setIdVoeuxMatier(ficheVoeux.getIdVoeux_Matier());
@@ -127,9 +128,39 @@ public class FicheVoeuxService {
 	}
 	
 	
-	private void Unpack(FicheVRest ficheVoeuxR, FicheVoeux ficheVoeux, List<Voeux_Matier> vm) {
+	private ArrayList<Object> Unpack(FicheVRest ficheVoeuxR) {
+		ArrayList<Object>pack  =new ArrayList<>(); 
+		FicheVoeux ficheVoeux = new FicheVoeux() ;
+		List<Voeux_Matier> vm = new ArrayList<>() ; 
 		
 		
+		
+		ficheVoeux.setCharge_Globale_Souhaitee(ficheVoeuxR.charge_globale_souhaitee);
+		ficheVoeux.setContraintPedagogique(ficheVoeuxR.contraint_pedagogique);
+		ficheVoeux.setContraintPersonnels(ficheVoeuxR.contraint_personnels);
+		ficheVoeux.setDateSaisie(ficheVoeuxR.date_saisie);
+		ficheVoeux.setHeures_supplementaires(ficheVoeuxR.heures_supplementaires);
+		ficheVoeux.setId(ficheVoeuxR.id);
+		ficheVoeux.setIdEnseingent(ficheVoeuxR.id_enseingent);
+		ficheVoeux.setIdSemestre(ficheVoeuxR.id_semestre);
+
+		for(MatierVoeuxRest mvr : ficheVoeuxR.matierVoeuxRests)
+		{
+			Voeux_Matier v = new Voeux_Matier();
+			v.setId(mvr.id);
+			v.setIdMatier(mvr.id_matier);
+			v.setPriorite(mvr.priorite);
+			v.setIdVoeuxMatier(ficheVoeux.getIdVoeux_Matier());
+			vm.add(v);
+		}
+		
+		
+		pack.add(ficheVoeux);
+		pack.add(vm);
+		
+		return pack;
+		
+		//, FicheVoeux ficheVoeux, List<Voeux_Matier> vm
 		// TODO Auto-generated method stub
 		
 	}
