@@ -7,6 +7,7 @@ package com.MiniProjetGestionDetude.entites;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -45,7 +46,21 @@ public class FicheVoeux implements Serializable {
     @Column(name = "id_voeux")
     private int idVoeux_Matier;
     
-    private Boolean heures_supplementaires ; 
+    
+    
+    public int getIdVoeux_Matier() {
+		return idVoeux_Matier;
+	}
+
+	public void setIdVoeux_Matier(int idVoeux_Matier) {
+		this.idVoeux_Matier = idVoeux_Matier;
+	}
+
+	public void setIdEnseingent(int idEnseingent) {
+		this.idEnseingent = idEnseingent;
+	}
+
+	private Boolean heures_supplementaires ; 
     private int charge_Globale_Souhaitee; 
 
     

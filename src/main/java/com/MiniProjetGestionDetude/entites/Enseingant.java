@@ -7,6 +7,7 @@ package com.MiniProjetGestionDetude.entites;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  *
@@ -31,9 +32,8 @@ public class Enseingant implements Serializable {
     @Column(name = "prenom")
     private String prenom;
     @Basic(optional = false)
-    @Lob
-    @Column(name = "date_recrutemet")
-    private String dateRecrutemet;
+   
+    private Date DateRecutement;
     @Basic(optional = false)
     @Lob
     @Column(name = "grade")
@@ -53,6 +53,8 @@ public class Enseingant implements Serializable {
     @Column(name = "id_fiche_voeux")
     private int idFicheVoeux;
 
+    
+    
     public Enseingant() {
     }
 
@@ -60,11 +62,11 @@ public class Enseingant implements Serializable {
         this.id = id;
     }
 
-    public Enseingant(Integer id, String nom, String prenom, String dateRecrutemet, String grade, String dateGrade, String email, int tel, int idFicheVoeux) {
+    public Enseingant(Integer id, String nom, String prenom, Date DateRecutement, String grade, String dateGrade, String email, int tel, int idFicheVoeux) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
-        this.dateRecrutemet = dateRecrutemet;
+        this.DateRecutement = DateRecutement;
         this.grade = grade;
         this.dateGrade = dateGrade;
         this.email = email;
@@ -96,12 +98,12 @@ public class Enseingant implements Serializable {
         this.prenom = prenom;
     }
 
-    public String getDateRecrutemet() {
-        return dateRecrutemet;
+    public Date getDateRecrutemet() {
+        return DateRecutement;
     }
 
-    public void setDateRecrutemet(String dateRecrutemet) {
-        this.dateRecrutemet = dateRecrutemet;
+    public void setDateRecrutemet(Date dateRecrutemet) {
+        this.DateRecutement = dateRecrutemet;
     }
 
     public String getGrade() {
