@@ -26,6 +26,8 @@ public class FicheVoeuxService {
 	
 	public FicheVoeux addFicheVoeux(FicheVRest ficheVoeuxR)
 	{
+		if(enseingantRepo.findOne(ficheVoeuxR.id_enseingent).getNbrFv()<2)
+		{
 		FicheVoeux ficheVoeux = new FicheVoeux() ;
 		List<Voeux_Matier> vm = new ArrayList<>() ; 
 		ArrayList<Object>pack = Unpack(ficheVoeuxR);
@@ -36,8 +38,12 @@ public class FicheVoeuxService {
 			m.setIdVoeuxMatier(ficheVoeux.getIdVoeux_Matier());
 			matierVoeuxRepo.save(m);
 		}
-		 
+		
+		enseingantRepo.findOne(ficheVoeuxR.id_enseingent).setNbrFv(enseingantRepo.findOne(ficheVoeuxR.id_enseingent).getNbrFv()+1);
+		
 		return ficheVoeuxRepo.save(ficheVoeux);
+		}else 
+			return null ;
 	}
 	
 	
@@ -164,6 +170,8 @@ public class FicheVoeuxService {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 	
 
 }

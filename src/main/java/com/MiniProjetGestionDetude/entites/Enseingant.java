@@ -54,8 +54,26 @@ public class Enseingant implements Serializable {
     private int idFicheVoeux;
 
     
+    private int nbrFv =0 ;
     
-    public Enseingant() {
+    
+    public Date getDateRecutement() {
+		return DateRecutement;
+	}
+
+	public void setDateRecutement(Date dateRecutement) {
+		DateRecutement = dateRecutement;
+	}
+
+	public int getNbrFv() {
+		return nbrFv;
+	}
+
+	public void setNbrFv(int nbrFv) {
+		this.nbrFv = nbrFv;
+	}
+
+	public Enseingant() {
     }
 
     public Enseingant(Integer id) {
@@ -72,6 +90,7 @@ public class Enseingant implements Serializable {
         this.email = email;
         this.tel = tel;
         this.idFicheVoeux = idFicheVoeux;
+        
     }
 
     public Integer getId() {

@@ -3,6 +3,7 @@ package com.MiniProjetGestionDetude.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,13 +21,9 @@ public class FicheVoeuxController {
 	
 	@Autowired FicheVoeuxService ficheVoeuxService ; 
 	@Autowired MatierVoeuxRepo mvr ; 
-	@RequestMapping(value="/ficheVoeux",method=RequestMethod.POST)
+	@RequestMapping(value="/ficheVoeux",method=RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
 	public FicheVoeux addfv(@RequestBody FicheVRest ficheVoeuxRest)
 	{
-
-
-		
-		
 		return ficheVoeuxService.addFicheVoeux(ficheVoeuxRest);
 	}
 	
